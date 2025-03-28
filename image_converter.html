@@ -366,7 +366,7 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <a href="/" class="logo">Ultimate<span>Image</span><span>Converter</span></a>
+            <a href="/" class="logo">Ultimate<span>Image Converter</span></a>
             <nav>
                 <a href="https://0upload.github.io/tool/" style="text-decoration: none; color: var(--dark);">All Tools</a>
             </nav>
@@ -450,27 +450,6 @@
                         </optgroup>
                     </select>
                     
-                    <!-- Format-specific options -->
-                    <div id="jpeg-options" class="format-options format-active">
-                        <label>JPEG Quality</label>
-                        <div class="slider-container">
-                            <input type="range" id="jpeg-quality" min="10" max="100" value="80">
-                            <span class="slider-value" id="jpeg-quality-value">80%</span>
-                        </div>
-                    </div>
-                    
-                    <div id="gif-options" class="format-options">
-                        <label>GIF Quality</label>
-                        <div class="slider-container">
-                            <input type="range" id="gif-quality" min="1" max="30" value="10">
-                            <span class="slider-value" id="gif-quality-value">10</span>
-                        </div>
-                        <div style="margin-top: 0.5rem;">
-                            <input type="checkbox" id="animated-gif">
-                            <label for="animated-gif">Create animated GIF</label>
-                        </div>
-                    </div>
-                    
                     <div id="svg-options" class="format-options">
                         <label>Vectorization Detail</label>
                         <div class="slider-container">
@@ -479,15 +458,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="control-group">
-                    <label for="resize-mode">Resize Options</label>
-                    <select id="resize-mode">
-                        <option value="original">Keep original size</option>
-                        <option value="custom">Custom dimensions</option>
-                        <option value="percentage">Scale by percentage</option>
-                        <option value="preset">Preset sizes</option>
-                    </select>
+          
                                 
             <div class="action-buttons">
                 <button id="convert-btn" class="btn btn-primary" disabled>
