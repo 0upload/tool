@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free temporary phone numbers for SMS verification. Receive OTP codes for WhatsApp, IMO, Telegram, and more without using your real number.">
+    <meta name="keywords" content="temporary number, SMS verification, WhatsApp verification, IMO verification, free phone number, OTP receiver">
+    <meta name="author" content="TempNumberTool">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Temporary Numbers for SMS Verification">
+    <meta property="og:description" content="Get disposable phone numbers for SMS verification. Works with WhatsApp, IMO, Telegram, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:image" content="https://yourdomain.com/preview.jpg">
+    <link rel="canonical" href="https://yourdomain.com">
+    <title>Free Temporary Numbers for SMS Verification | WhatsApp, IMO, Telegram</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #f8f9fa;
+            --dark: #333;
+            --light: #f5f7ff;
+            --success: #28a745;
+            --danger: #dc3545;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #ff6b6b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Number Generator Tool */
+        .generator-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .generator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .generator-header h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .generator-body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Country Selector */
+        .country-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .country-card {
+            flex: 1;
+            min-width: 150px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .country-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .country-card.active {
+            border-color: var(--primary);
+            background: rgba(74, 107, 255, 0.05);
+        }
+
+        .country-card img {
+            width: 40px;
+            height: 30px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* Number Display */
+        .number-display {
+            background: var(--secondary);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .number-display h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .phone-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 15px 0;
+            word-break: break-all;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #3a5bef;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        /* Supported Services */
+        .services {
+            margin-top: 30px;
+        }
+
+        .services h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        /* Ad Containers */
+        .ad-container {
+            margin: 30px 0;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .ad-label {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .generator-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .generator-container {
+                padding: 20px;
+            }
+            
+            .country-card {
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Temp<span>Number</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Supported Apps</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Temporary Numbers for SMS Verification</h1>
+                <p>Get disposable phone numbers to receive OTP codes for WhatsApp, IMO, Telegram, and more without using your real number.</p>
+            </section>
+
+            <!-- Top Ad Banner -->
+            <div class="ad-container">
+                <div class="ad-label">Advertisement</div>
+                <!-- Replace YOUR_ADSTERRA_AD_UNIT_ID with your actual Adsterra ad unit ID -->
+                <div id="adsterra-top-banner">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : 'YOUR_ADSTERRA_AD_UNIT_ID',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                        document.write('<scr' + 'ipt type="text/javascript" src="//www.highcpmcreativeformat.com/YOUR_ADSTERRA_AD_UNIT_ID/invoke.js"></scr' + 'ipt>');
+                    </script>
+                </div>
+            </div>
+
+            <section class="generator-container">
+                <div class="generator-header">
+                    <h2>Number Generator</h2>
+                </div>
+                
+                <div class="generator-body">
+                    <h3>Select Country</h3>
+                    <div class="country-selector">
+                        <div class="country-card active" data-country="us">
+                            <img src="https://flagcdn.com/w20/us.png" alt="USA Flag">
+                            <p>USA</p>
+                        </div>
+                        <div class="country-card" data-country="uk">
+                            <img src="https://flagcdn.com/w20/gb.png" alt="UK Flag">
+                            <p>UK</p>
+                        </div>
+                        <div class="country-card" data-country="ca">
+                            <img src="https://flagcdn.com/w20/ca.png" alt="Canada Flag">
+                            <p>Canada</p>
+                        </div>
+                        <div class="country-card" data-country="au">
+                            <img src="https://flagcdn.com/w20/au.png" alt="Australia Flag">
+                            <p>Australia</p>
+                        </div>
+                        <div class="country-card" data-country="in">
+                            <img src="https://flagcdn.com/w20/in.png" alt="India Flag">
+                            <p>India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="number-display">
+                        <h3>Your Temporary Number</h3>
+                        <div class="spinner" id="spinner"></div>
+                        <div class="phone-number" id="phoneNumber">+1 (415) 555-0139</div>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" id="generateBtn">Generate New Number</button>
+                            <button class="btn btn-success" id="copyBtn">Copy Number</button>
+                        </div>
+                    </div>
+                    
+                    <div class="services">
+                        <h3>Works With:</h3>
+                        <div class="service-icons">
+                            <div class="service-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="service-icon">
+                                <i class="fas fa-comment-dots"></i> <!-- IMO -->
+                            </div>
+                            <div class="service-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="service-icon">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div class="service-icon">
+                                <i class="fab fa-google"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Middle Ad Banner -->
+            <div class="ad-container">
+                <div class="ad-label">Advertisement</div>
+                <!-- Replace YOUR_ADSTERRA_AD_UNIT_ID with your actual Adsterra ad unit ID -->
+                <div id="adsterra-middle-banner">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : 'YOUR_ADSTERRA_AD_UNIT_ID',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                        };
+                        document.write('<scr' + 'ipt type="text/javascript" src="//www.highcpmcreativeformat.com/YOUR_ADSTERRA_AD_UNIT_ID/invoke.js"></scr' + 'ipt>');
+                    </script>
+                </div>
+            </div>
+
+            <section class="features">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Privacy Protection</h3>
+                    <p>Keep your real number private while verifying accounts.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Temporary Numbers</h3>
+                    <p>Numbers expire after use, no long-term commitments.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Multiple Countries</h3>
+                    <p>Get numbers from different countries for verification.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TempNumber</h3>
+                    <p>Free temporary phone numbers for SMS verification. Protect your privacy online.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Supported Apps</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Countries</h3>
+                    <ul>
+                        <li><a href="#">USA Numbers</a></li>
+                        <li><a href="#">UK Numbers</a></li>
+                        <li><a href="#">Canada Numbers</a></li>
+                        <li><a href="#">India Numbers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> TempNumber Tool. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Number Generator Elements
+        const countryCards = document.querySelectorAll('.country-card');
+        const phoneNumber = document.getElementById('phoneNumber');
+        const generateBtn = document.getElementById('generateBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const spinner = document.getElementById('spinner');
+        const toast = document.getElementById('toast');
+
+        let currentCountry = 'us';
+        const countryFormats = {
+            us: { code: '+1', format: '(XXX) XXX-XXXX' },
+            uk: { code: '+44', format: 'XXXX XXX XXX' },
+            ca: { code: '+1', format: '(XXX) XXX-XXXX' },
+            au: { code: '+61', format: 'X XXXX XXXX' },
+            in: { code: '+91', format: 'XXXXX XXXXX' }
+        };
+
+        // Country selection
+        countryCards.forEach(card => {
+            card.addEventListener('click', function() {
+                countryCards.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                currentCountry = this.dataset.country;
+                generateNumber();
+            });
+        });
+
+        // Generate number button
+        generateBtn.addEventListener('click', generateNumber);
+
+        // Copy number button
+        copyBtn.addEventListener('click', copyNumber);
+
+        function generateNumber() {
+            spinner.style.display = 'block';
+            phoneNumber.style.display = 'none';
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                const format = countryFormats[currentCountry];
+                const randomNum = format.format.replace(/X/g, () => Math.floor(Math.random() * 10));
+                
+                phoneNumber.textContent = `${format.code} ${randomNum}`;
+                spinner.style.display = 'none';
+                phoneNumber.style.display = 'block';
+                
+                showToast('New number generated successfully!');
+            }, 1000);
+        }
+
+        function copyNumber() {
+            navigator.clipboard.writeText(phoneNumber.textContent)
+                .then(() => {
+                    showToast('Number copied to clipboard!');
+                })
+                .catch(err => {
+                    showToast('Failed to copy number');
+                    console.error('Failed to copy: ', err);
+                });
+        }
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Generate initial number
+        generateNumber();
+    </script>
+</body>
+</html>
