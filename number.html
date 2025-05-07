@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free temporary phone numbers for SMS verification. Receive OTP codes for WhatsApp, IMO, Telegram, and more without using your real number.">
+    <meta name="description" content="Free temporary phone numbers for SMS verification. Receive OTP codes for WhatsApp, IMO, Telegram and more without using your real number.">
     <meta name="keywords" content="temporary number, SMS verification, WhatsApp verification, IMO verification, free phone number, OTP receiver">
-    <meta name="author" content="TempNumberTool">
+    <meta name="author" content="TempNumberPro">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Free Temporary Numbers for SMS Verification">
-    <meta property="og:description" content="Get disposable phone numbers for SMS verification. Works with WhatsApp, IMO, Telegram, and more.">
+    <meta property="og:description" content="Get disposable phone numbers for SMS verification. Works with WhatsApp, IMO, Telegram and more.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourdomain.com">
     <meta property="og:image" content="https://yourdomain.com/preview.jpg">
     <link rel="canonical" href="https://yourdomain.com">
     <title>Free Temporary Numbers for SMS Verification | WhatsApp, IMO, Telegram</title>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -25,7 +24,7 @@
             --success: #28a745;
             --danger: #dc3545;
             --border-radius: 8px;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -50,7 +49,7 @@
         /* Header */
         header {
             background: white;
-            box-shadow: var(--shadow);
+            box-shadow: var(--box-shadow);
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -126,11 +125,11 @@
             margin: 0 auto 30px;
         }
 
-        /* Number Generator Tool */
+        /* Generator Tool */
         .generator-container {
             background: white;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+            box-shadow: var(--box-shadow);
             padding: 30px;
             margin-bottom: 40px;
         }
@@ -147,21 +146,22 @@
             color: var(--primary);
         }
 
-        .generator-body {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
         /* Country Selector */
         .country-selector {
+            margin-bottom: 30px;
+        }
+
+        .country-selector h3 {
+            margin-bottom: 15px;
+        }
+
+        .countries {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 20px;
         }
 
-        .country-card {
+        .country {
             flex: 1;
             min-width: 150px;
             border: 1px solid #ddd;
@@ -172,17 +172,17 @@
             transition: all 0.3s;
         }
 
-        .country-card:hover {
+        .country:hover {
             border-color: var(--primary);
-            box-shadow: var(--shadow);
+            box-shadow: var(--box-shadow);
         }
 
-        .country-card.active {
+        .country.active {
             border-color: var(--primary);
             background: rgba(74, 107, 255, 0.05);
         }
 
-        .country-card img {
+        .country img {
             width: 40px;
             height: 30px;
             object-fit: cover;
@@ -193,9 +193,9 @@
         .number-display {
             background: var(--secondary);
             border-radius: var(--border-radius);
-            padding: 20px;
+            padding: 30px;
             text-align: center;
-            margin-top: 20px;
+            margin: 20px 0;
         }
 
         .number-display h3 {
@@ -204,10 +204,28 @@
         }
 
         .phone-number {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin: 15px 0;
+            margin: 20px 0;
             word-break: break-all;
+        }
+
+        .number-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-expired {
+            background: #f8d7da;
+            color: #721c24;
         }
 
         .action-buttons {
@@ -244,14 +262,72 @@
             background: #218838;
         }
 
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        /* Messages Section */
+        .messages-container {
+            display: none;
+            margin-top: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+        }
+
+        .messages-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .messages-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .message {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .message:last-child {
+            border-bottom: none;
+        }
+
+        .message-service {
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .message-time {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .message-content {
+            margin-top: 5px;
+            color: var(--dark);
+        }
+
         /* Supported Services */
         .services {
-            margin-top: 30px;
+            margin: 30px 0;
         }
 
         .services h3 {
             margin-bottom: 15px;
             color: var(--primary);
+            text-align: center;
         }
 
         .service-icons {
@@ -269,7 +345,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow);
+            box-shadow: var(--box-shadow);
             font-size: 24px;
             color: var(--primary);
         }
@@ -281,7 +357,7 @@
             background: white;
             padding: 20px;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+            box-shadow: var(--box-shadow);
         }
 
         .ad-label {
@@ -373,7 +449,7 @@
             color: white;
             padding: 15px 25px;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+            box-shadow: var(--box-shadow);
             transform: translateY(100px);
             opacity: 0;
             transition: all 0.3s;
@@ -405,14 +481,12 @@
                 font-size: 2rem;
             }
             
-            .generator-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-            
             .action-buttons {
                 flex-direction: column;
+            }
+            
+            .country {
+                min-width: 120px;
             }
         }
 
@@ -448,8 +522,8 @@
                 padding: 20px;
             }
             
-            .country-card {
-                min-width: 120px;
+            .phone-number {
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -457,7 +531,7 @@
 <body>
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">Temp<span>Number</span></a>
+            <a href="#" class="logo">Temp<span>Number</span>Pro</a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -477,7 +551,7 @@
         <div class="container">
             <section class="hero">
                 <h1>Temporary Numbers for SMS Verification</h1>
-                <p>Get disposable phone numbers to receive OTP codes for WhatsApp, IMO, Telegram, and more without using your real number.</p>
+                <p>Get disposable phone numbers to receive OTP codes for WhatsApp, IMO, Telegram and more without using your real number.</p>
             </section>
 
             <!-- Top Ad Banner -->
@@ -500,62 +574,77 @@
 
             <section class="generator-container">
                 <div class="generator-header">
-                    <h2>Number Generator</h2>
+                    <h2>Get Your Temporary Number</h2>
                 </div>
                 
-                <div class="generator-body">
+                <div class="country-selector">
                     <h3>Select Country</h3>
-                    <div class="country-selector">
-                        <div class="country-card active" data-country="us">
+                    <div class="countries">
+                        <div class="country active" data-country="us" data-code="+1">
                             <img src="https://flagcdn.com/w20/us.png" alt="USA Flag">
                             <p>USA</p>
                         </div>
-                        <div class="country-card" data-country="uk">
+                        <div class="country" data-country="uk" data-code="+44">
                             <img src="https://flagcdn.com/w20/gb.png" alt="UK Flag">
                             <p>UK</p>
                         </div>
-                        <div class="country-card" data-country="ca">
+                        <div class="country" data-country="ca" data-code="+1">
                             <img src="https://flagcdn.com/w20/ca.png" alt="Canada Flag">
                             <p>Canada</p>
                         </div>
-                        <div class="country-card" data-country="au">
+                        <div class="country" data-country="au" data-code="+61">
                             <img src="https://flagcdn.com/w20/au.png" alt="Australia Flag">
                             <p>Australia</p>
                         </div>
-                        <div class="country-card" data-country="in">
+                        <div class="country" data-country="in" data-code="+91">
                             <img src="https://flagcdn.com/w20/in.png" alt="India Flag">
                             <p>India</p>
                         </div>
                     </div>
-                    
-                    <div class="number-display">
-                        <h3>Your Temporary Number</h3>
-                        <div class="spinner" id="spinner"></div>
-                        <div class="phone-number" id="phoneNumber">+1 (415) 555-0139</div>
-                        <div class="action-buttons">
-                            <button class="btn btn-primary" id="generateBtn">Generate New Number</button>
-                            <button class="btn btn-success" id="copyBtn">Copy Number</button>
-                        </div>
+                </div>
+                
+                <div class="number-display">
+                    <h3>Your Temporary Number</h3>
+                    <div class="spinner" id="spinner"></div>
+                    <div class="phone-number" id="phoneNumber">+1 (415) 555-0139</div>
+                    <div class="number-status status-active" id="numberStatus">Active for 20 minutes</div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="getNumberBtn">Get New Number</button>
+                        <button class="btn btn-success" id="copyBtn">Copy Number</button>
+                        <button class="btn btn-danger" id="refreshBtn">Refresh Messages</button>
                     </div>
-                    
-                    <div class="services">
-                        <h3>Works With:</h3>
-                        <div class="service-icons">
-                            <div class="service-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="service-icon">
-                                <i class="fas fa-comment-dots"></i> <!-- IMO -->
-                            </div>
-                            <div class="service-icon">
-                                <i class="fab fa-telegram"></i>
-                            </div>
-                            <div class="service-icon">
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                            <div class="service-icon">
-                                <i class="fab fa-google"></i>
-                            </div>
+                </div>
+                
+                <div class="messages-container" id="messagesContainer">
+                    <div class="messages-header">
+                        <h3>Received Messages</h3>
+                        <span id="messageCount">0 messages</span>
+                    </div>
+                    <div class="messages-list" id="messagesList">
+                        <!-- Messages will appear here -->
+                    </div>
+                </div>
+                
+                <div class="services">
+                    <h3>Works With These Services:</h3>
+                    <div class="service-icons">
+                        <div class="service-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-comment-dots"></i> <!-- IMO -->
+                        </div>
+                        <div class="service-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="service-icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="service-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="service-icon">
+                            <i class="fab fa-twitter"></i>
                         </div>
                     </div>
                 </div>
@@ -587,13 +676,13 @@
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-clock"></i>
-                    <h3>Temporary Numbers</h3>
-                    <p>Numbers expire after use, no long-term commitments.</p>
+                    <h3>20 Minute Sessions</h3>
+                    <p>Numbers expire automatically after use.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Multiple Countries</h3>
-                    <p>Get numbers from different countries for verification.</p>
+                    <i class="fas fa-sms"></i>
+                    <h3>Real SMS Reception</h3>
+                    <p>Receive actual verification codes from services.</p>
                 </div>
             </section>
         </div>
@@ -603,7 +692,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>TempNumber</h3>
+                    <h3>TempNumberPro</h3>
                     <p>Free temporary phone numbers for SMS verification. Protect your privacy online.</p>
                 </div>
                 <div class="footer-column">
@@ -634,7 +723,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; <span id="currentYear"></span> TempNumber Tool. All rights reserved.</p>
+                <p>&copy; <span id="currentYear"></span> TempNumberPro. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -651,57 +740,164 @@
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         // Number Generator Elements
-        const countryCards = document.querySelectorAll('.country-card');
+        const countries = document.querySelectorAll('.country');
         const phoneNumber = document.getElementById('phoneNumber');
-        const generateBtn = document.getElementById('generateBtn');
+        const numberStatus = document.getElementById('numberStatus');
+        const getNumberBtn = document.getElementById('getNumberBtn');
         const copyBtn = document.getElementById('copyBtn');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const messagesContainer = document.getElementById('messagesContainer');
+        const messagesList = document.getElementById('messagesList');
+        const messageCount = document.getElementById('messageCount');
         const spinner = document.getElementById('spinner');
         const toast = document.getElementById('toast');
 
-        let currentCountry = 'us';
-        const countryFormats = {
-            us: { code: '+1', format: '(XXX) XXX-XXXX' },
-            uk: { code: '+44', format: 'XXXX XXX XXX' },
-            ca: { code: '+1', format: '(XXX) XXX-XXXX' },
-            au: { code: '+61', format: 'X XXXX XXXX' },
-            in: { code: '+91', format: 'XXXXX XXXXX' }
+        // Sample API integration (in production, replace with real API calls)
+        const sampleNumbers = {
+            us: [
+                "+1 (415) 555-0139",
+                "+1 (628) 555-0125",
+                "+1 (347) 555-0182"
+            ],
+            uk: [
+                "+44 7700 900123",
+                "+44 7700 900456",
+                "+44 7700 900789"
+            ],
+            ca: [
+                "+1 (416) 555-0139",
+                "+1 (647) 555-0125",
+                "+1 (437) 555-0182"
+            ],
+            au: [
+                "+61 412 345 678",
+                "+61 412 345 679",
+                "+61 412 345 680"
+            ],
+            in: [
+                "+91 98765 43210",
+                "+91 98765 43211",
+                "+91 98765 43212"
+            ]
         };
 
+        const sampleMessages = [
+            {
+                service: "WhatsApp",
+                time: "2 minutes ago",
+                content: "Your WhatsApp code is 123456"
+            },
+            {
+                service: "Google",
+                time: "5 minutes ago",
+                content: "Your Google verification code is G-789012"
+            },
+            {
+                service: "Telegram",
+                time: "8 minutes ago",
+                content: "Your Telegram code is 456789"
+            }
+        ];
+
+        let currentCountry = "us";
+        let currentNumber = "";
+        let expirationTimer;
+        let timeLeft = 20; // minutes
+
         // Country selection
-        countryCards.forEach(card => {
-            card.addEventListener('click', function() {
-                countryCards.forEach(c => c.classList.remove('active'));
+        countries.forEach(country => {
+            country.addEventListener('click', function() {
+                countries.forEach(c => c.classList.remove('active'));
                 this.classList.add('active');
                 currentCountry = this.dataset.country;
-                generateNumber();
+                getNewNumber();
             });
         });
 
-        // Generate number button
-        generateBtn.addEventListener('click', generateNumber);
+        // Get new number button
+        getNumberBtn.addEventListener('click', getNewNumber);
 
         // Copy number button
         copyBtn.addEventListener('click', copyNumber);
 
-        function generateNumber() {
+        // Refresh messages button
+        refreshBtn.addEventListener('click', refreshMessages);
+
+        function getNewNumber() {
             spinner.style.display = 'block';
             phoneNumber.style.display = 'none';
+            messagesContainer.style.display = 'none';
             
             // Simulate API call delay
             setTimeout(() => {
-                const format = countryFormats[currentCountry];
-                const randomNum = format.format.replace(/X/g, () => Math.floor(Math.random() * 10));
+                // In production, this would be an actual API call to get a number
+                const numbers = sampleNumbers[currentCountry];
+                currentNumber = numbers[Math.floor(Math.random() * numbers.length)];
                 
-                phoneNumber.textContent = `${format.code} ${randomNum}`;
+                phoneNumber.textContent = currentNumber;
                 spinner.style.display = 'none';
                 phoneNumber.style.display = 'block';
+                messagesContainer.style.display = 'block';
                 
-                showToast('New number generated successfully!');
+                // Start expiration timer
+                startExpirationTimer();
+                
+                // Show sample messages
+                displayMessages();
+                
+                showToast('New number generated successfully! Active for 20 minutes.');
             }, 1000);
         }
 
+        function startExpirationTimer() {
+            clearInterval(expirationTimer);
+            timeLeft = 20;
+            
+            expirationTimer = setInterval(() => {
+                timeLeft--;
+                numberStatus.textContent = `Active for ${timeLeft} minutes`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(expirationTimer);
+                    numberStatus.textContent = "Expired";
+                    numberStatus.className = "number-status status-expired";
+                    showToast('Your temporary number has expired. Get a new one to continue.');
+                }
+            }, 60000); // Update every minute
+        }
+
+        function displayMessages() {
+            messagesList.innerHTML = '';
+            messageCount.textContent = `${sampleMessages.length} messages`;
+            
+            sampleMessages.forEach(msg => {
+                const messageElement = document.createElement('div');
+                messageElement.className = 'message';
+                messageElement.innerHTML = `
+                    <div>
+                        <div>
+                            <span class="message-service">${msg.service}</span>
+                            <span class="message-time">${msg.time}</span>
+                        </div>
+                        <div class="message-content">${msg.content}</div>
+                    </div>
+                `;
+                messagesList.appendChild(messageElement);
+            });
+        }
+
+        function refreshMessages() {
+            spinner.style.display = 'block';
+            
+            // Simulate API call to check for new messages
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                showToast('Messages refreshed successfully!');
+            }, 800);
+        }
+
         function copyNumber() {
-            navigator.clipboard.writeText(phoneNumber.textContent)
+            navigator.clipboard.writeText(currentNumber || phoneNumber.textContent)
                 .then(() => {
                     showToast('Number copied to clipboard!');
                 })
@@ -719,8 +915,8 @@
             }, 3000);
         }
 
-        // Generate initial number
-        generateNumber();
+        // Initialize with first number
+        getNewNumber();
     </script>
 </body>
 </html>
